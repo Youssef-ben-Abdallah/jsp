@@ -31,6 +31,26 @@ public class ProductController extends HttpServlet {
 
         String action = request.getParameter("action");
 
+        if ("view".equals(action)) {
+            String productId = request.getParameter("id");
+            Product product = productService.getProductWithPromotion(productId)
+                    .orElse(null);
+
+            if (product == null) {
+                response.sendRedirect(request.getContextPath() + "/products");
+                return;
+            }
+
+            String categoryName = categoryService.getCategoryById(product.getCategoryId())
+                    .map(org.example.model.Category::getName)
+                    .orElse("Unknown Category");
+
+            request.setAttribute("product", product);
+            request.setAttribute("categoryName", categoryName);
+            request.getRequestDispatcher("/product-details.jsp").forward(request, response);
+            return;
+        }
+
         if ("admin".equals(action)) {
             org.example.model.User user = (org.example.model.User) request.getSession().getAttribute("user");
             if (user == null || !user.isAdmin()) {
