@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
 
         <c:if test="${empty cartItems}">
             <div class="alert alert-info">
-                Your cart is empty. <a href="products">Continue shopping</a>
+                Your cart is empty. <a href="${contextPath}/products">Continue shopping</a>
             </div>
         </c:if>
 
@@ -38,14 +39,14 @@
                             </td>
                             <td>$${item.price}</td>
                             <td>
-                                <form action="cart/update" method="post" class="d-inline">
+                                <form action="${contextPath}/cart/update" method="post" class="d-inline">
                                     <input type="hidden" name="productId" value="${item.productId}">
                                     <input type="number" name="quantity" value="${item.quantity}" min="1" class="form-control" style="width: 80px;" onchange="this.form.submit()">
                                 </form>
                             </td>
                             <td>$${item.totalPrice}</td>
                             <td>
-                                <form action="cart/remove" method="post" class="d-inline">
+                                <form action="${contextPath}/cart/remove" method="post" class="d-inline">
                                     <input type="hidden" name="productId" value="${item.productId}">
                                     <button type="submit" class="btn btn-danger btn-sm">Remove</button>
                                 </form>
@@ -63,9 +64,9 @@
             </table>
 
             <div class="d-flex justify-content-between">
-                <a href="products" class="btn btn-secondary">Continue Shopping</a>
-                <a href="cart/clear" class="btn btn-warning">Clear Cart</a>
-                <a href="checkout" class="btn btn-success">Proceed to Checkout</a>
+                <a href="${contextPath}/products" class="btn btn-secondary">Continue Shopping</a>
+                <a href="${contextPath}/cart/clear" class="btn btn-warning">Clear Cart</a>
+                <a href="${contextPath}/checkout" class="btn btn-success">Proceed to Checkout</a>
             </div>
         </c:if>
     </div>

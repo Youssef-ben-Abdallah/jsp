@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,7 @@
 </head>
 <body>
     <div class="login-container">
-        <img src="assets/img/avatar.png" alt="Avatar" class="avatar" onerror="this.src='https://via.placeholder.com/100'">
+        <img src="${contextPath}/assets/img/avatar.png" alt="Avatar" class="avatar" onerror="this.src='https://via.placeholder.com/100'">
         <h2 class="text-center mb-4">Login to IIT Store</h2>
 
         <%-- Display error message if login failed --%>
@@ -40,7 +41,7 @@
             </div>
         </c:if>
 
-        <form action="login" method="post">
+        <form action="${contextPath}/login" method="post">
             <div class="mb-3">
                 <label for="email" class="form-label">Email Address</label>
                 <input type="email" class="form-control" id="email" name="email"
@@ -59,7 +60,7 @@
             </div>
 
             <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary" onclick="window.location.href='home'">Login</button>
+                <button type="submit" class="btn btn-primary" onclick="window.location.href='${contextPath}/home'">Login</button>
                 <button type="button" class="btn btn-secondary">Cancel</button>
             </div>
 
