@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +69,7 @@
                         <ul class="dropdown-menu category-dropdown" aria-labelledby="categoryDropdown">
                             <li>
                                 <a class="dropdown-item ${selectedCategory == 'all' ? 'active' : ''}"
-                                   href="products?category=all">
+                                   href="${contextPath}/products?category=all">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span>All Categories</span>
                                     </div>
@@ -78,7 +79,7 @@
                             <c:forEach var="category" items="${categories}">
                                 <li>
                                     <a class="dropdown-item ${selectedCategory == category.id ? 'active' : ''}"
-                                       href="products?category=${category.id}">
+                                       href="${contextPath}/products?category=${category.id}">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <span>${category.name}</span>
                                         </div>
@@ -91,7 +92,7 @@
 
                     <!-- Clear Filter Button -->
                     <c:if test="${selectedCategory != 'all'}">
-                        <a href="products?category=all" class="btn btn-outline-secondary ms-3">
+                        <a href="${contextPath}/products?category=all" class="btn btn-outline-secondary ms-3">
                             <i class="bi bi-x-circle"></i> Clear Filter
                         </a>
                     </c:if>
@@ -225,7 +226,7 @@
                                 <!-- Card Footer -->
                                 <div class="card-footer bg-transparent border-top-0 pt-0">
                                     <div class="d-grid gap-2">
-                                        <a href="/Test/products?action=view&id=${product.id}"
+                                        <a href="${contextPath}/products?action=view&id=${product.id}"
                                            class="btn btn-outline-secondary">
                                             <i class="bi bi-eye"></i> View Details
                                         </a>
@@ -255,10 +256,10 @@
                         </c:choose>
                     </p>
                     <div class="d-flex justify-content-center gap-3">
-                        <a href="products?category=all" class="btn btn-primary">
+                        <a href="${contextPath}/products?category=all" class="btn btn-primary">
                             <i class="bi bi-house-door"></i> View All Products
                         </a>
-                        <a href="/Test/categories" class="btn btn-outline-primary">
+                        <a href="${contextPath}/categories" class="btn btn-outline-primary">
                             <i class="bi bi-tags"></i> Browse Categories
                         </a>
                     </div>

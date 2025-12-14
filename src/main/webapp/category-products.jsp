@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,13 +25,13 @@
                         <div class="card-body">
                             <h5 class="card-title">${product.name}</h5>
                             <p class="card-text">$${product.price}</p>
-                            <form action="cart/add" method="post" class="d-inline">
+                            <form action="${contextPath}/cart/add" method="post" class="d-inline">
                                 <input type="hidden" name="productId" value="${product.id}">
                                 <input type="number" name="quantity" value="1" min="1"
                                        max="${product.stockQuantity}" class="form-control mb-2">
                                 <button type="submit" class="btn btn-primary btn-sm">Add to Cart</button>
                             </form>
-                            <a href="products?action=view&id=${product.id}" class="btn btn-outline-secondary btn-sm">
+                            <a href="${contextPath}/products?action=view&id=${product.id}" class="btn btn-outline-secondary btn-sm">
                                 Details
                             </a>
                         </div>

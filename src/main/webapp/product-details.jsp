@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
     <jsp:include page="/shared/navbar.jsp" />
 
     <div class="container mt-4">
-        <a href="products" class="btn btn-outline-secondary mb-3">← Back to Products</a>
+        <a href="${contextPath}/products" class="btn btn-outline-secondary mb-3">← Back to Products</a>
 
         <div class="row">
             <div class="col-md-6">
@@ -34,7 +35,7 @@
                 <p>${product.description}</p>
 
                 <c:if test="${product.stockQuantity > 0}">
-                    <form action="cart/add" method="post" class="mb-3">
+                    <form action="${contextPath}/cart/add" method="post" class="mb-3">
                         <input type="hidden" name="productId" value="${product.id}">
                         <div class="row g-3 align-items-center">
                             <div class="col-auto">

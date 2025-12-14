@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +51,7 @@
         <div class="hero-section text-center">
             <h1 class="display-4 fw-bold">Welcome to IIT Store</h1>
             <p class="lead">Discover amazing products at great prices</p>
-            <a href="/Test/products" class="btn btn-light btn-lg mt-3">
+            <a href="${contextPath}/products" class="btn btn-light btn-lg mt-3">
                 <i class="bi bi-arrow-right"></i> Start Shopping
             </a>
         </div>
@@ -108,7 +109,7 @@
                                         <h5 class="card-title">${product.name}</h5>
                                         <p class="card-text flex-grow-1 small">${product.description}</p>
 
-                                        <div class="mt-auto">
+                                    <div class="mt-auto">
                                             <p class="card-text">
                                                 <strong class="text-primary fs-5">$${product.price}</strong>
                                                 <c:if test="${product.stockQuantity > 0}">
@@ -119,7 +120,7 @@
                                     </div>
 
                                     <div class="card-footer bg-transparent">
-                                        <a href="/Test/products?action=view&id=${product.id}"
+                                        <a href="${contextPath}/products?action=view&id=${product.id}"
                                            class="btn btn-outline-primary w-100">
                                             View Details
                                         </a>
@@ -131,7 +132,7 @@
                 </div>
 
                 <div class="text-center mt-4">
-                    <a href="/Test/products" class="btn btn-primary btn-lg">
+                    <a href="${contextPath}/products" class="btn btn-primary btn-lg">
                         <i class="bi bi-arrow-right"></i> View All Products
                     </a>
                 </div>
@@ -153,7 +154,7 @@
         <div class="row">
             <c:forEach var="category" items="${categories}">
                 <div class="col-md-3 col-6 mb-4">
-                    <a href="/Test/products?category=${category.id}" class="text-decoration-none">
+                    <a href="${contextPath}/products?category=${category.id}" class="text-decoration-none">
                         <div class="card category-card text-center h-100">
                             <div class="card-body">
                                 <div class="mb-3">

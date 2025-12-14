@@ -3,7 +3,7 @@
 <title>IIT/GR3</title>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/index.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
 </head>
 <body>
 <h2>Welcome to Error Page</h2>
