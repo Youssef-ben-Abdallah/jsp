@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet(name = "CartController", urlPatterns = {"/cart/add", "/cart/view", "/cart/update", "/cart/remove", "/cart/clear"})
+@WebServlet(name = "CartController", urlPatterns = {"/cart", "/cart/add", "/cart/view", "/cart/update", "/cart/remove", "/cart/clear"})
 public class CartController extends HttpServlet {
     private ProductService productService;
 
@@ -27,7 +27,7 @@ public class CartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getServletPath();
-        if ("/cart/view".equals(path)) {
+        if ("/cart".equals(path) || "/cart/view".equals(path)) {
             viewCart(request, response);
         } else if ("/cart/clear".equals(path)) {
             clearCart(request, response);
@@ -52,7 +52,7 @@ public class CartController extends HttpServlet {
         List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
         if (cart == null) {
             cart = new ArrayList<>();
-            session.setAttribute("cart", cart);
+            storeCart(session, cart);
         }
         return cart;
     }
@@ -63,13 +63,21 @@ public class CartController extends HttpServlet {
                 : product.getPrice();
     }
 
+    private void storeCart(HttpSession session, List<CartItem> cart) {
+        session.setAttribute("cart", cart);
+        int itemCount = cart.stream()
+                .mapToInt(CartItem::getQuantity)
+                .sum();
+        session.setAttribute("cartCount", itemCount);
+    }
+
     private void refreshCartPrices(HttpSession session) {
         List<CartItem> cart = getCart(session);
 
         cart.forEach(item -> productService.getProductWithPromotion(item.getProductId())
                 .ifPresent(product -> item.setPrice(resolvePrice(product))));
 
-        session.setAttribute("cart", cart);
+        storeCart(session, cart);
     }
 
     private void addToCart(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -110,7 +118,7 @@ public class CartController extends HttpServlet {
                 cart.add(newItem);
             }
 
-            request.getSession().setAttribute("cart", cart);
+            storeCart(request.getSession(), cart);
         }
 
         response.sendRedirect(request.getContextPath() + "/cart/view");
@@ -154,6 +162,7 @@ public class CartController extends HttpServlet {
             }
         }
 
+        storeCart(request.getSession(), cart);
         response.sendRedirect(request.getContextPath() + "/cart/view");
     }
 
@@ -161,11 +170,14 @@ public class CartController extends HttpServlet {
         String productId = request.getParameter("productId");
         List<CartItem> cart = getCart(request.getSession());
         cart.removeIf(item -> item.getProductId().equals(productId));
+        storeCart(request.getSession(), cart);
         response.sendRedirect(request.getContextPath() + "/cart/view");
     }
 
     private void clearCart(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        request.getSession().removeAttribute("cart");
+        HttpSession session = request.getSession();
+        session.removeAttribute("cart");
+        session.setAttribute("cartCount", 0);
         response.sendRedirect(request.getContextPath() + "/cart/view");
     }
 }
