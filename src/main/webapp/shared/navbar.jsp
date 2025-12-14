@@ -5,6 +5,12 @@
     Object user = session.getAttribute("user");
     String fullname = null;
     boolean isAdmin = false;
+    int cartCount = 0;
+
+    Object cartCountObj = session.getAttribute("cartCount");
+    if (cartCountObj instanceof Integer) {
+        cartCount = (Integer) cartCountObj;
+    }
 
     if (user != null) {
         try {
@@ -48,7 +54,11 @@
                 <!-- Cart - for all users -->
                 <li class="nav-item">
                     <a class="nav-link <%= request.getRequestURI().contains("/cart") ? "active" : "" %>"
-                       href="<%= contextPath %>/cart/view">Cart</a>
+                       href="<%= contextPath %>/cart/view">Cart
+                        <% if (cartCount > 0) { %>
+                            <span class="badge bg-primary"><%= cartCount %></span>
+                        <% } %>
+                    </a>
                 </li>
 
                 <!-- ADMIN ONLY: Links to admin CRUD pages -->
