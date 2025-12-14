@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.example.model.Product;
 import org.example.service.CategoryService;
 import org.example.service.ProductService;
-import org.example.service.PromotionService;
 import java.io.IOException;
 import java.util.List;
 import java.util.UUID;

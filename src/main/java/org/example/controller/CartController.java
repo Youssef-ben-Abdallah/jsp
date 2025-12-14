@@ -57,6 +57,21 @@ public class CartController extends HttpServlet {
         return cart;
     }
 
+    private double resolvePrice(Product product) {
+        return product.hasPromotion() && product.getDiscountedPrice() != null
+                ? product.getDiscountedPrice()
+                : product.getPrice();
+    }
+
+    private void refreshCartPrices(HttpSession session) {
+        List<CartItem> cart = getCart(session);
+
+        cart.forEach(item -> productService.getProductWithPromotion(item.getProductId())
+                .ifPresent(product -> item.setPrice(resolvePrice(product))));
+
+        session.setAttribute("cart", cart);
+    }
+
     private void addToCart(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String productId = request.getParameter("productId");
         String quantityParam = request.getParameter("quantity");
@@ -70,7 +85,7 @@ public class CartController extends HttpServlet {
             }
         }
 
-        Optional<Product> productOpt = productService.getProductById(productId);
+        Optional<Product> productOpt = productService.getProductWithPromotion(productId);
         if (productOpt.isPresent()) {
             Product product = productOpt.get();
             List<CartItem> cart = getCart(request.getSession());
@@ -82,12 +97,13 @@ public class CartController extends HttpServlet {
                 // Update quantity
                 CartItem item = existingItem.get();
                 item.setQuantity(item.getQuantity() + quantity);
+                item.setPrice(resolvePrice(product));
             } else {
                 // Add new item
                 CartItem newItem = new CartItem(
                         product.getId(),
                         product.getName(),
-                        product.getPrice(),
+                        resolvePrice(product),
                         quantity,
                         product.getImageUrl()
                 );
@@ -101,6 +117,7 @@ public class CartController extends HttpServlet {
     }
 
     private void viewCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        refreshCartPrices(request.getSession());
         List<CartItem> cart = getCart(request.getSession());
         double total = cart.stream()
                 .mapToDouble(CartItem::getTotalPrice)

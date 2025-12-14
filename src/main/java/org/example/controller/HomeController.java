@@ -37,6 +37,7 @@ public class HomeController extends HttpServlet {
         try {
             List<Category> allCategories = categoryService.getAllCategories();
             List<Product> allProducts = productService.getAllProducts();
+            productService.applyPromotions(allProducts);
             List<Product> featuredProducts = allProducts.size() > 8 ?
                     allProducts.subList(0, 8) : allProducts;
             List<Promotion> promotions = promotionService.getActivePromotions();
