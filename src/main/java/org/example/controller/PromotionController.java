@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.model.Promotion;
+import org.example.model.User;
 import org.example.service.CategoryService;
 import org.example.service.ProductService;
 import org.example.service.PromotionService;
@@ -32,6 +33,12 @@ public class PromotionController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null || !user.isAdmin()) {
+            response.sendRedirect(request.getContextPath() + "/login");
+            return;
+        }
+
         request.setAttribute("promotions", promotionService.getAllPromotions());
 
         request.setAttribute("products", productService.getAllProducts());
@@ -44,6 +51,12 @@ public class PromotionController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null || !user.isAdmin()) {
+            response.sendRedirect(request.getContextPath() + "/login");
+            return;
+        }
 
         String action = request.getParameter("action");
 
@@ -69,9 +82,9 @@ public class PromotionController extends HttpServlet {
                 LocalDate.parse(request.getParameter("endDate"))
         );
 
-        promotion.setProductId(request.getParameter("productId"));
-        promotion.setCategoryId(request.getParameter("categoryId"));
-        promotion.setActive(Boolean.parseBoolean(request.getParameter("active")));
+        promotion.setProductId(normalizeNullable(request.getParameter("productId")));
+        promotion.setCategoryId(normalizeNullable(request.getParameter("categoryId")));
+        promotion.setActive(request.getParameter("active") != null);
 
         promotionService.addPromotion(promotion);
     }
@@ -88,8 +101,8 @@ public class PromotionController extends HttpServlet {
                 LocalDate.parse(request.getParameter("endDate"))
         );
 
-        promotion.setProductId(request.getParameter("productId"));
-        promotion.setCategoryId(request.getParameter("categoryId"));
+        promotion.setProductId(normalizeNullable(request.getParameter("productId")));
+        promotion.setCategoryId(normalizeNullable(request.getParameter("categoryId")));
         boolean active = request.getParameter("active") != null;
         promotion.setActive(active);
 
@@ -98,5 +111,9 @@ public class PromotionController extends HttpServlet {
 
     private void deletePromotion(HttpServletRequest request) {
         promotionService.deletePromotion(request.getParameter("id"));
+    }
+
+    private String normalizeNullable(String value) {
+        return (value == null || value.isBlank()) ? null : value;
     }
 }

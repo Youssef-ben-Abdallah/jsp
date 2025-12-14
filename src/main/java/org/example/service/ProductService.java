@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.model.Product;
-import org.example.model.Promotion;
 import org.example.repository.ProductRepository;
 import java.util.List;
 import java.util.Optional;
@@ -26,26 +25,19 @@ public class ProductService {
     }
 
     public List<Product> applyPromotions(List<Product> products) {
-        List<Promotion> activePromotions = promotionService.getActivePromotions()
-                .stream()
-                .filter(promo -> promo.getProductId() != null) // skip null productId
-                .toList();
-
-        for (Product p : products) {
-            for (Promotion promo : activePromotions) {
-                if (promo.getProductId().equals(p.getId())) {
-                    p.setPromotion(promo); // attach promotion to product
-                    break; // one promotion per product
-                }
-            }
-        }
-
+        products.forEach(promotionService::applyPromotionToProduct);
         return products;
     }
 
 
     public Optional<Product> getProductById(String id) {
         return productRepository.getProductById(id);
+    }
+
+    public Optional<Product> getProductWithPromotion(String id) {
+        Optional<Product> product = productRepository.getProductById(id);
+        product.ifPresent(promotionService::applyPromotionToProduct);
+        return product;
     }
 
     public void addProduct(Product product) {

@@ -32,6 +32,11 @@ public class ProductController extends HttpServlet {
         String action = request.getParameter("action");
 
         if ("admin".equals(action)) {
+            org.example.model.User user = (org.example.model.User) request.getSession().getAttribute("user");
+            if (user == null || !user.isAdmin()) {
+                response.sendRedirect(request.getContextPath() + "/login");
+                return;
+            }
             request.setAttribute("products", productService.getAllProducts());
             request.setAttribute("categories", categoryService.getAllCategories());
             request.getRequestDispatcher("/admin/product.jsp").forward(request, response);
@@ -65,6 +70,12 @@ public class ProductController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        org.example.model.User user = (org.example.model.User) request.getSession().getAttribute("user");
+        if (user == null || !user.isAdmin()) {
+            response.sendRedirect(request.getContextPath() + "/login");
+            return;
+        }
 
         String action = request.getParameter("action");
 

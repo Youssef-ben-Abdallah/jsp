@@ -56,7 +56,16 @@ public class Product {
     public boolean isActive() { return active; }
     public void setActive(boolean active) { this.active = active; }
 
+    public Double getDiscountedPrice() { return discountedPrice; }
+    public void setDiscountedPrice(Double discountedPrice) { this.discountedPrice = discountedPrice; }
+
+    public double getDiscountPercent() { return discountPercent; }
+    public void setDiscountPercent(double discountPercent) { this.discountPercent = discountPercent; }
+
+    public String getPromotionName() { return promotionName; }
+    public void setPromotionName(String promotionName) { this.promotionName = promotionName; }
+
     public boolean hasPromotion() {
-        return discountedPrice != null;
+        return discountedPrice != null && discountedPrice < price;
     }
 }

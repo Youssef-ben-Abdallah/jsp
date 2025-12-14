@@ -1,18 +1,15 @@
 package org.example.service;
 
-import org.example.model.Promotion;
 import org.example.model.Product;
+import org.example.model.Promotion;
 import org.example.repository.PromotionRepository;
-import org.example.repository.ProductRepository;
 import java.util.List;
 
 public class PromotionService {
     private final PromotionRepository promotionRepository;
-    private final ProductRepository productRepository;
 
     public PromotionService() {
         this.promotionRepository = new PromotionRepository();
-        this.productRepository = new ProductRepository();
     }
 
     public List<Promotion> getAllPromotions() {
@@ -42,21 +39,57 @@ public class PromotionService {
     }
 
     public double getDiscountedPrice(Product product) {
-        List<Promotion> activePromotions = getActivePromotions();
-        double price = product.getPrice();
+        applyPromotionToProduct(product);
+        return product.hasPromotion() ? product.getDiscountedPrice() : product.getPrice();
+    }
 
-        for (Promotion promotion : activePromotions) {
-            if (promotion.getProductId() != null && promotion.getProductId().equals(product.getId())) {
-                price = promotion.applyDiscount(price);
-            }
-            else if (promotion.getCategoryId() != null && promotion.getCategoryId().equals(product.getCategoryId())) {
-                price = promotion.applyDiscount(price);
-            }
-            else if (promotion.getProductId() == null && promotion.getCategoryId() == null) {
-                price = promotion.applyDiscount(price);
+    public void applyPromotionToProduct(Product product) {
+        Promotion bestPromotion = null;
+        double bestPrice = product.getPrice();
+
+        for (Promotion promotion : getActivePromotions()) {
+            if (isPromotionApplicable(promotion, product)) {
+                double discounted = promotion.applyDiscount(product.getPrice());
+                if (discounted < bestPrice) {
+                    bestPrice = discounted;
+                    bestPromotion = promotion;
+                }
             }
         }
 
-        return price;
+        if (bestPromotion != null && bestPrice < product.getPrice()) {
+            product.setPromotion(bestPromotion);
+            product.setPromotionName(bestPromotion.getTitle());
+            product.setDiscountedPrice(bestPrice);
+            double discountPercent = product.getPrice() > 0
+                    ? (product.getPrice() - bestPrice) / product.getPrice() * 100
+                    : 0;
+            product.setDiscountPercent(discountPercent);
+        } else {
+            product.setPromotion(null);
+            product.setPromotionName(null);
+            product.setDiscountedPrice(null);
+            product.setDiscountPercent(0);
+        }
+    }
+
+    private boolean isPromotionApplicable(Promotion promotion, Product product) {
+        if (!promotion.isActive()) {
+            return false;
+        }
+
+        String promotionProductId = promotion.getProductId();
+        String promotionCategoryId = promotion.getCategoryId();
+
+        boolean hasProductId = promotionProductId != null && !promotionProductId.isBlank();
+        boolean hasCategoryId = promotionCategoryId != null && !promotionCategoryId.isBlank();
+
+        if (hasProductId) {
+            return promotionProductId.equals(product.getId());
+        }
+        if (hasCategoryId) {
+            return promotionCategoryId.equals(product.getCategoryId());
+        }
+        return true; // global promotion
     }
 }

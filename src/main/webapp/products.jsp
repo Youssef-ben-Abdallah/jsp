@@ -155,9 +155,9 @@
 
                                     <!-- Stock Status Badge -->
                                     <div class="position-absolute top-0 end-0 m-2">
-                                        <c:if test="${not empty product.promotion}">
+                                        <c:if test="${product.hasPromotion()}">
                                             <div class="badge bg-danger position-absolute top-0 end-0 m-2" style="right: 0; top: 40px;">
-                                                ${product.promotion.name} - ${product.promotion.discountPercent}% Off
+                                                ${product.promotionName} - ${product.discountPercent}% Off
                                             </div>
                                         </c:if>
                                         <c:choose>
