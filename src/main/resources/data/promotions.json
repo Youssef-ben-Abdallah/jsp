@@ -1,0 +1,122 @@
+[
+  {
+    "id": "PROM001",
+    "title": "Electronics Mega Sale",
+    "description": "25% off on all electronics",
+    "discountValue": 25,
+    "discountType": "PERCENTAGE",
+    "startDate": "2024-01-01",
+    "endDate": "2024-12-31",
+    "categoryId": "CAT001",
+    "productId": null,
+    "active": true
+  },
+  {
+    "id": "PROM002",
+    "title": "Fashion Festival",
+    "description": "Buy 1 get 1 free on selected apparel",
+    "discountValue": 50,
+    "discountType": "PERCENTAGE",
+    "startDate": "2025-12-14",
+    "endDate": "2025-12-19",
+    "categoryId": "CAT002",
+    "productId": null,
+    "active": true
+  },
+  {
+    "id": "PROM003",
+    "title": "Home Essentials Sale",
+    "description": "20% off on home & kitchen products",
+    "discountValue": 20,
+    "discountType": "PERCENTAGE",
+    "startDate": "2024-01-01",
+    "endDate": "2024-12-31",
+    "categoryId": "CAT003",
+    "productId": null,
+    "active": true
+  },
+  {
+    "id": "PROM004",
+    "title": "Back to School Special",
+    "description": "30% off on all books and stationery",
+    "discountValue": 30,
+    "discountType": "PERCENTAGE",
+    "startDate": "2024-08-01",
+    "endDate": "2024-09-30",
+    "categoryId": "CAT004",
+    "productId": null,
+    "active": true
+  },
+  {
+    "id": "PROM005",
+    "title": "Fitness Frenzy",
+    "description": "15% off on sports & fitness equipment",
+    "discountValue": 15,
+    "discountType": "PERCENTAGE",
+    "startDate": "2024-01-01",
+    "endDate": "2024-12-31",
+    "categoryId": "CAT005",
+    "productId": null,
+    "active": true
+  },
+  {
+    "id": "PROM006",
+    "title": "Beauty Bonanza",
+    "description": "$20 off on beauty products over $100",
+    "discountValue": 20,
+    "discountType": "FIXED_AMOUNT",
+    "startDate": "2024-01-01",
+    "endDate": "2024-12-31",
+    "categoryId": "CAT006",
+    "productId": null,
+    "active": true
+  },
+  {
+    "id": "PROM007",
+    "title": "Toy Fair",
+    "description": "Buy 2 toys, get 25% off on the third",
+    "discountValue": 25,
+    "discountType": "PERCENTAGE",
+    "startDate": "2024-11-01",
+    "endDate": "2024-12-25",
+    "categoryId": "CAT007",
+    "productId": null,
+    "active": true
+  },
+  {
+    "id": "PROM008",
+    "title": "Auto Accessories Sale",
+    "description": "10% off on all automotive products",
+    "discountValue": 10,
+    "discountType": "PERCENTAGE",
+    "startDate": "2024-01-01",
+    "endDate": "2024-12-31",
+    "categoryId": "CAT008",
+    "productId": null,
+    "active": true
+  },
+  {
+    "id": "PROM009",
+    "title": "Flash Sale: MacBook Pro",
+    "description": "Limited time: $300 off on MacBook Pro",
+    "discountValue": 300,
+    "discountType": "FIXED_AMOUNT",
+    "startDate": "2024-03-01",
+    "endDate": "2024-03-07",
+    "categoryId": null,
+    "productId": "PROD001",
+    "active": true
+  },
+  {
+    "id": "PROM010",
+    "title": "Free Shipping Weekend",
+    "description": "Free shipping on all orders this weekend",
+    "discountValue": 0,
+    "discountType": "FREE_SHIPPING",
+    "startDate": "2024-03-01",
+    "endDate": "2024-12-31",
+    "categoryId": null,
+    "productId": null,
+    "active": true
+  }
+]

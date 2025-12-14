@@ -1,0 +1,482 @@
+[
+  {
+    "id": "PROD001",
+    "name": "MacBook Pro 16-inch",
+    "price": 2399.99,
+    "description": "Apple MacBook Pro with M3 Pro chip, 18GB RAM, 1TB SSD",
+    "categoryId": "CAT001",
+    "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+    "stockQuantity": 25,
+    "active": true
+  },
+  {
+    "id": "PROD002",
+    "name": "iPhone 15 Pro Max",
+    "price": 1199.99,
+    "description": "Latest iPhone with titanium design and A17 Pro chip",
+    "categoryId": "CAT001",
+    "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab",
+    "stockQuantity": 50,
+    "active": true
+  },
+  {
+    "id": "PROD003",
+    "name": "Sony WH-1000XM5 Headphones",
+    "price": 399.99,
+    "description": "Premium noise-cancelling wireless headphones",
+    "categoryId": "CAT001",
+    "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+    "stockQuantity": 75,
+    "active": true
+  },
+  {
+    "id": "PROD004",
+    "name": "Samsung 4K Smart TV",
+    "price": 899.99,
+    "description": "65-inch 4K Ultra HD Smart TV with Quantum Dot",
+    "categoryId": "CAT001",
+    "imageUrl": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1",
+    "stockQuantity": 30,
+    "active": true
+  },
+  {
+    "id": "PROD005",
+    "name": "iPad Air 5th Gen",
+    "price": 749.99,
+    "description": "10.9-inch iPad Air with M1 chip and Liquid Retina display",
+    "categoryId": "CAT001",
+    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0",
+    "stockQuantity": 40,
+    "active": true
+  },
+  {
+    "id": "PROD006",
+    "name": "DJI Mini 3 Pro Drone",
+    "price": 759.99,
+    "description": "Compact drone with 4K camera and 34-minute flight time",
+    "categoryId": "CAT001",
+    "imageUrl": "https://images.unsplash.com/photo-1473968512647-3e447244af8f",
+    "stockQuantity": 20,
+    "active": true
+  },
+  {
+    "id": "PROD007",
+    "name": "Men's Leather Jacket",
+    "price": 299.99,
+    "description": "Genuine leather jacket with quilted lining",
+    "categoryId": "CAT002",
+    "imageUrl": "https://images.unsplash.com/photo-1551028719-00167b16eac5",
+    "stockQuantity": 45,
+    "active": true
+  },
+  {
+    "id": "PROD008",
+    "name": "Women's Winter Coat",
+    "price": 189.99,
+    "description": "Waterproof winter coat with faux fur hood",
+    "categoryId": "CAT002",
+    "imageUrl": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d",
+    "stockQuantity": 60,
+    "active": true
+  },
+  {
+    "id": "PROD009",
+    "name": "Designer Handbag",
+    "price": 459.99,
+    "description": "Luxury leather handbag with gold hardware",
+    "categoryId": "CAT002",
+    "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3",
+    "stockQuantity": 25,
+    "active": true
+  },
+  {
+    "id": "PROD010",
+    "name": "Running Sneakers",
+    "price": 129.99,
+    "description": "Lightweight running shoes with cushion technology",
+    "categoryId": "CAT002",
+    "imageUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+    "stockQuantity": 80,
+    "active": true
+  },
+  {
+    "id": "PROD011",
+    "name": "Casual T-Shirt Pack",
+    "price": 49.99,
+    "description": "Pack of 5 cotton t-shirts in various colors",
+    "categoryId": "CAT002",
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+    "stockQuantity": 150,
+    "active": true
+  },
+  {
+    "id": "PROD012",
+    "name": "Designer Sunglasses",
+    "price": 199.99,
+    "description": "UV protection sunglasses with polarized lenses",
+    "categoryId": "CAT002",
+    "imageUrl": "https://images.unsplash.com/photo-1572635196237-14b3f281503f",
+    "stockQuantity": 65,
+    "active": true
+  },
+  {
+    "id": "PROD013",
+    "name": "Smart Coffee Maker",
+    "price": 249.99,
+    "description": "WiFi-enabled coffee maker with app control",
+    "categoryId": "CAT003",
+    "imageUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
+    "stockQuantity": 35,
+    "active": true
+  },
+  {
+    "id": "PROD014",
+    "name": "Air Fryer Oven",
+    "price": 179.99,
+    "description": "Multi-function air fryer with digital display",
+    "categoryId": "CAT003",
+    "imageUrl": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256",
+    "stockQuantity": 40,
+    "active": true
+  },
+  {
+    "id": "PROD015",
+    "name": "Stand Mixer",
+    "price": 399.99,
+    "description": "Professional stand mixer with 10-speed control",
+    "categoryId": "CAT003",
+    "imageUrl": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136",
+    "stockQuantity": 20,
+    "active": true
+  },
+  {
+    "id": "PROD016",
+    "name": "Memory Foam Mattress",
+    "price": 799.99,
+    "description": "Queen size memory foam mattress with cooling gel",
+    "categoryId": "CAT003",
+    "imageUrl": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
+    "stockQuantity": 15,
+    "active": true
+  },
+  {
+    "id": "PROD017",
+    "name": "Robot Vacuum",
+    "price": 349.99,
+    "description": "Smart robot vacuum with mapping technology",
+    "categoryId": "CAT003",
+    "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
+    "stockQuantity": 30,
+    "active": true
+  },
+  {
+    "id": "PROD018",
+    "name": "Food Processor",
+    "price": 159.99,
+    "description": "10-cup food processor with multiple blades",
+    "categoryId": "CAT003",
+    "imageUrl": "https://images.unsplash.com/photo-1556906781-2a1f1836c6c1",
+    "stockQuantity": 45,
+    "active": true
+  },
+  {
+    "id": "PROD019",
+    "name": "The Great Gatsby",
+    "price": 14.99,
+    "description": "Classic novel by F. Scott Fitzgerald",
+    "categoryId": "CAT004",
+    "imageUrl": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c",
+    "stockQuantity": 120,
+    "active": true
+  },
+  {
+    "id": "PROD020",
+    "name": "World Atlas",
+    "price": 49.99,
+    "description": "Comprehensive world atlas with detailed maps",
+    "categoryId": "CAT004",
+    "imageUrl": "https://images.unsplash.com/photo-1541963463532-d68292c34b19",
+    "stockQuantity": 60,
+    "active": true
+  },
+  {
+    "id": "PROD021",
+    "name": "Leather Journal",
+    "price": 34.99,
+    "description": "Handcrafted leather-bound journal",
+    "categoryId": "CAT004",
+    "imageUrl": "https://images.unsplash.com/photo-1531346688376-ab6275c4725e",
+    "stockQuantity": 85,
+    "active": true
+  },
+  {
+    "id": "PROD022",
+    "name": "Fountain Pen Set",
+    "price": 89.99,
+    "description": "Luxury fountain pen set with ink bottles",
+    "categoryId": "CAT004",
+    "imageUrl": "https://images.unsplash.com/photo-1583484963886-cfe2bff2945f",
+    "stockQuantity": 40,
+    "active": true
+  },
+  {
+    "id": "PROD023",
+    "name": "Scientific Calculator",
+    "price": 29.99,
+    "description": "Advanced scientific calculator with 300 functions",
+    "categoryId": "CAT004",
+    "imageUrl": "https://images.unsplash.com/photo-1587145820266-a5951ee6f620",
+    "stockQuantity": 200,
+    "active": true
+  },
+  {
+    "id": "PROD024",
+    "name": "Backpack with Laptop Sleeve",
+    "price": 79.99,
+    "description": "Water-resistant backpack with padded laptop compartment",
+    "categoryId": "CAT004",
+    "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62",
+    "stockQuantity": 90,
+    "active": true
+  },
+  {
+    "id": "PROD025",
+    "name": "Yoga Mat Premium",
+    "price": 59.99,
+    "description": "Eco-friendly yoga mat with carrying strap",
+    "categoryId": "CAT005",
+    "imageUrl": "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0",
+    "stockQuantity": 70,
+    "active": true
+  },
+  {
+    "id": "PROD026",
+    "name": "Adjustable Dumbbells",
+    "price": 299.99,
+    "description": "Adjustable dumbbell set 5-50kg",
+    "categoryId": "CAT005",
+    "imageUrl": "https://images.unsplash.com/photo-1534367507877-0edd93bd013b",
+    "stockQuantity": 25,
+    "active": true
+  },
+  {
+    "id": "PROD027",
+    "name": "Fitness Tracker",
+    "price": 199.99,
+    "description": "Smart fitness tracker with heart rate monitor",
+    "categoryId": "CAT005",
+    "imageUrl": "https://images.unsplash.com/photo-1576243345690-4e4b79b63288",
+    "stockQuantity": 55,
+    "active": true
+  },
+  {
+    "id": "PROD028",
+    "name": "Mountain Bike",
+    "price": 899.99,
+    "description": "27-speed mountain bike with suspension",
+    "categoryId": "CAT005",
+    "imageUrl": "https://images.unsplash.com/photo-1485965120184-e220f721d03e",
+    "stockQuantity": 15,
+    "active": true
+  },
+  {
+    "id": "PROD029",
+    "name": "Tennis Racket",
+    "price": 149.99,
+    "description": "Professional tennis racket with carbon frame",
+    "categoryId": "CAT005",
+    "imageUrl": "https://images.unsplash.com/photo-1595435934247-5d33b7f92c60",
+    "stockQuantity": 40,
+    "active": true
+  },
+  {
+    "id": "PROD030",
+    "name": "Camping Tent",
+    "price": 249.99,
+    "description": "4-person waterproof camping tent",
+    "categoryId": "CAT005",
+    "imageUrl": "https://images.unsplash.com/photo-1504851149312-7a075b496cc7",
+    "stockQuantity": 30,
+    "active": true
+  },
+  {
+    "id": "PROD031",
+    "name": "Moisturizing Cream",
+    "price": 39.99,
+    "description": "24-hour moisturizing cream for all skin types",
+    "categoryId": "CAT006",
+    "imageUrl": "https://images.unsplash.com/photo-1556228578-9c360e1d8d34",
+    "stockQuantity": 150,
+    "active": true
+  },
+  {
+    "id": "PROD032",
+    "name": "Perfume Collection",
+    "price": 129.99,
+    "description": "Luxury perfume collection with 3 scents",
+    "categoryId": "CAT006",
+    "imageUrl": "https://images.unsplash.com/photo-1541643600914-78b084683601",
+    "stockQuantity": 45,
+    "active": true
+  },
+  {
+    "id": "PROD033",
+    "name": "Electric Toothbrush",
+    "price": 89.99,
+    "description": "Smart electric toothbrush with pressure sensor",
+    "categoryId": "CAT006",
+    "imageUrl": "https://images.unsplash.com/photo-1559599101-f09722fb4948",
+    "stockQuantity": 85,
+    "active": true
+  },
+  {
+    "id": "PROD034",
+    "name": "Hair Dryer Professional",
+    "price": 159.99,
+    "description": "Professional hair dryer with ionic technology",
+    "categoryId": "CAT006",
+    "imageUrl": "https://images.unsplash.com/photo-1522338140262-f46f5913618a",
+    "stockQuantity": 60,
+    "active": true
+  },
+  {
+    "id": "PROD035",
+    "name": "Makeup Brush Set",
+    "price": 69.99,
+    "description": "12-piece professional makeup brush set",
+    "categoryId": "CAT006",
+    "imageUrl": "https://images.unsplash.com/photo-1596462502278-27bfdc403348",
+    "stockQuantity": 75,
+    "active": true
+  },
+  {
+    "id": "PROD036",
+    "name": "Sunscreen SPF 50",
+    "price": 24.99,
+    "description": "Broad spectrum sunscreen with moisturizer",
+    "categoryId": "CAT006",
+    "imageUrl": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6",
+    "stockQuantity": 200,
+    "active": true
+  },
+  {
+    "id": "PROD037",
+    "name": "Board Game Collection",
+    "price": 79.99,
+    "description": "Family board game collection with 8 popular games",
+    "categoryId": "CAT007",
+    "imageUrl": "https://images.unsplash.com/photo-1632501641765-bc74f7645513",
+    "stockQuantity": 40,
+    "active": true
+  },
+  {
+    "id": "PROD038",
+    "name": "Lego Architecture Set",
+    "price": 149.99,
+    "description": "2000-piece Lego architecture building set",
+    "categoryId": "CAT007",
+    "imageUrl": "https://images.unsplash.com/photo-1587654780298-8c6d6b2c8b1a",
+    "stockQuantity": 30,
+    "active": true
+  },
+  {
+    "id": "PROD039",
+    "name": "Remote Control Car",
+    "price": 89.99,
+    "description": "High-speed RC car with 2.4GHz remote",
+    "categoryId": "CAT007",
+    "imageUrl": "https://images.unsplash.com/photo-1551316659-6bda6f3f5c4e",
+    "stockQuantity": 55,
+    "active": true
+  },
+  {
+    "id": "PROD040",
+    "name": "Drone with Camera",
+    "price": 199.99,
+    "description": "Beginner drone with 1080p camera",
+    "categoryId": "CAT007",
+    "imageUrl": "https://images.unsplash.com/photo-1520694478163-4c7d79d15924",
+    "stockQuantity": 35,
+    "active": true
+  },
+  {
+    "id": "PROD041",
+    "name": "Puzzle 1000 Pieces",
+    "price": 29.99,
+    "description": "1000-piece jigsaw puzzle with beautiful landscape",
+    "categoryId": "CAT007",
+    "imageUrl": "https://images.unsplash.com/photo-1600271886742-f049cd451bba",
+    "stockQuantity": 80,
+    "active": true
+  },
+  {
+    "id": "PROD042",
+    "name": "Building Blocks Set",
+    "price": 49.99,
+    "description": "Educational building blocks for children",
+    "categoryId": "CAT007",
+    "imageUrl": "https://images.unsplash.com/photo-1587654780298-8c6d6b2c8b1a",
+    "stockQuantity": 95,
+    "active": true
+  },
+  {
+    "id": "PROD043",
+    "name": "Car Phone Mount",
+    "price": 29.99,
+    "description": "Universal car phone mount with wireless charging",
+    "categoryId": "CAT008",
+    "imageUrl": "https://images.unsplash.com/photo-1565689221354-d87f85d4aee2",
+    "stockQuantity": 120,
+    "active": true
+  },
+  {
+    "id": "PROD044",
+    "name": "Dash Camera",
+    "price": 149.99,
+    "description": "4K dash cam with GPS and night vision",
+    "categoryId": "CAT008",
+    "imageUrl": "https://images.unsplash.com/photo-1581094794329-c8112a89af12",
+    "stockQuantity": 50,
+    "active": true
+  },
+  {
+    "id": "PROD045",
+    "name": "Car Vacuum Cleaner",
+    "price": 59.99,
+    "description": "Portable car vacuum with multiple attachments",
+    "categoryId": "CAT008",
+    "imageUrl": "https://images.unsplash.com/photo-1565689052193-7bbc6c3d2a67",
+    "stockQuantity": 75,
+    "active": true
+  },
+  {
+    "id": "PROD046",
+    "name": "Tire Pressure Gauge",
+    "price": 24.99,
+    "description": "Digital tire pressure gauge with backlight",
+    "categoryId": "CAT008",
+    "imageUrl": "https://images.unsplash.com/photo-1593941707882-a5bba5338fe2",
+    "stockQuantity": 150,
+    "active": true
+  },
+  {
+    "id": "PROD047",
+    "name": "Car Seat Covers",
+    "price": 89.99,
+    "description": "Universal fit car seat covers (set of 2)",
+    "categoryId": "CAT008",
+    "imageUrl": "https://images.unsplash.com/photo-1565689155818-70f25e55257e",
+    "stockQuantity": 60,
+    "active": true
+  },
+  {
+    "id": "PROD048",
+    "name": "Emergency Car Kit",
+    "price": 79.99,
+    "description": "Complete emergency car kit with first aid",
+    "categoryId": "CAT008",
+    "imageUrl": "https://images.unsplash.com/photo-1603575448878-868a20723f5d",
+    "stockQuantity": 40,
+    "active": true
+  }
+]

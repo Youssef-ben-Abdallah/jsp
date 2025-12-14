@@ -1,0 +1,50 @@
+[
+  {
+    "id": "CAT001",
+    "name": "Electronics",
+    "description": "Latest gadgets, devices, and electronic equipment",
+    "products": []
+  },
+  {
+    "id": "CAT002",
+    "name": "Fashion & Apparel",
+    "description": "Trendy clothing for men, women, and children",
+    "products": []
+  },
+  {
+    "id": "CAT003",
+    "name": "Home & Kitchen",
+    "description": "Home appliances, furniture, and kitchen essentials",
+    "products": []
+  },
+  {
+    "id": "CAT004",
+    "name": "Books & Education",
+    "description": "Books, stationery, and educational materials",
+    "products": []
+  },
+  {
+    "id": "CAT005",
+    "name": "Sports & Fitness",
+    "description": "Sports equipment and fitness gear",
+    "products": []
+  },
+  {
+    "id": "CAT006",
+    "name": "Beauty & Personal Care",
+    "description": "Cosmetics, skincare, and grooming products",
+    "products": []
+  },
+  {
+    "id": "CAT007",
+    "name": "Toys & Games",
+    "description": "Toys, board games, and entertainment",
+    "products": []
+  },
+  {
+    "id": "CAT008",
+    "name": "Automotive",
+    "description": "Car accessories and automotive supplies",
+    "products": []
+  }
+]
